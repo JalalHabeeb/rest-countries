@@ -1,11 +1,11 @@
 import React from "react";
 import Countries from "./components/Countries";
-
-const url = "http://restcountries.com";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
+      <Header />
       <Countries />
     </>
   );

@@ -17,6 +17,15 @@ body {
   color: hsl(0, 0%, 100%);
 }
 
+/*Header*/
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*Countries*/
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -57,7 +66,11 @@ body {
   }
 }
 @media (min-width: 992px) {
+  body {
+    padding: 50px 100px;
+  }
   .grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
   }
 }
