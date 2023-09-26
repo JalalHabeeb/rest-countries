@@ -110,6 +110,11 @@ body {
   font-weight: 300;
 }
 
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
