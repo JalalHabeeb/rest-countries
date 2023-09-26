@@ -12,16 +12,17 @@ const Country = () => {
       const response = await fetch(`https://restcountries.com/v2/name/${name}`);
       const country = await response.json();
       setCountry(country);
+      console.log(country);
     };
     fetchCountry();
   }, [name]);
   return (
     <>
-      <Link to={"/"} className="btn link">
-        <FaArrowLeftLong />
-        Back
-      </Link>
       <section className="country">
+        <Link to={"/"} className="btn link">
+          <FaArrowLeftLong />
+          <span>Back</span>
+        </Link>
         {country.map((c) => {
           const {
             numericCode,
@@ -35,7 +36,7 @@ const Country = () => {
             topLevelDomain,
             currencies,
             languages,
-            border,
+            borders,
           } = c;
 
           return (
@@ -47,20 +48,45 @@ const Country = () => {
               <div className="country-details">
                 <div>
                   <h2>{name}</h2>
-                  <h5>Native Name: {nativeName}</h5>
-                  <h5>Population: {population}</h5>
-                  <h5>Region: {region}</h5>
-                  <h5>Sub Region: {subregion}</h5>
-                  <h5>Capital: {capital}</h5>
+                  <h5>
+                    Native Name: <span>{nativeName}</span>
+                  </h5>
+                  <h5>
+                    Population: <span>{population}</span>
+                  </h5>
+                  <h5>
+                    Region: <span>{region}</span>
+                  </h5>
+                  <h5>
+                    Sub Region: <span>{subregion}</span>
+                  </h5>
+                  <h5>
+                    Capital: <span>{capital}</span>
+                  </h5>
                 </div>
                 <div>
-                  <h5>Top Level Domain: {topLevelDomain[0]}</h5>
-                  <h5>Currencies: {currencies[0].code}</h5>
-                  <h5>Languages {languages[0].name}</h5>
+                  <h5>
+                    Top Level Domain: <span>{topLevelDomain[0]}</span>
+                  </h5>
+                  <h5>
+                    Currencies: <span>{currencies[0].code}</span>
+                  </h5>
+                  <h5>
+                    Languages: <span>{languages[0].name}</span>
+                  </h5>
                 </div>
               </div>
               <div>
-                <h3>Border Countries: {border}</h3>
+                <h3>Border Countries:</h3>
+                <div className="borders">
+                  {borders.map((border) => {
+                    return (
+                      <ul>
+                        <li key={border}>{border}</li>
+                      </ul>
+                    );
+                  })}
+                </div>
               </div>
             </article>
           );

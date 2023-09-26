@@ -85,8 +85,15 @@ body {
   padding: 5px;
   cursor: pointer;
   border: 2px solid var(--dark-bg-color);
-  border-radius: 4px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  display: inline-block;
   transition: background-color 0.2s;
+  box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.5);
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .btn:hover {
@@ -94,6 +101,50 @@ body {
   color: var(--dark-bg-color);
 }
 
+.country {
+  padding: 50px;
+}
+
+.country article .country-details div {
+  margin: 30px 0;
+}
+
+.country article .country-details div h2 {
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.country article .country-details div h5 {
+  font-weight: 600;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.country article .country-details div h5 span {
+  font-weight: 300;
+}
+
+.country article h3 {
+  font-weight: 600;
+}
+
+.country article ul {
+  list-style-type: none;
+}
+
+.country article .borders {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.country article .borders ul {
+  margin: 10px;
+  background-color: var(--dark-bg-element);
+  padding: 3px 20px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.5);
+}
 /*Countries*/
 .grid {
   display: grid;
