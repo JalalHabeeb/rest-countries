@@ -79,6 +79,21 @@ body {
   border-radius: 5px;
 }
 
+/*Country*/
+.btn {
+  background-color: var(--dark-bg-element);
+  padding: 5px;
+  cursor: pointer;
+  border: 2px solid var(--dark-bg-color);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: white;
+  color: var(--dark-bg-color);
+}
+
 /*Countries*/
 .grid {
   display: grid;
