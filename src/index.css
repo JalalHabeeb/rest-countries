@@ -119,13 +119,24 @@ body {
 .country-data {
   display: flex;
   flex-direction: column;
-  gap: 40px;
 }
 
 .country-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.country-borders {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .country article .country-details div h2 {
@@ -250,12 +261,12 @@ body {
     width: 50%;
   }
   .country-info {
-    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
   .country-borders {
-    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
