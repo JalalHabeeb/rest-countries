@@ -32,7 +32,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: var(--dark-bg-element);
-  padding: 10px 20px;
+  padding: 20px;
 }
 
 /*Filter*/
@@ -80,6 +80,7 @@ body {
 }
 
 /*Country*/
+
 .btn {
   background-color: var(--dark-bg-element);
   padding: 5px;
@@ -102,11 +103,29 @@ body {
 }
 
 .country {
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
-.country article .country-details div {
-  margin: 30px 0;
+.country article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.country-data {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.country-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .country article .country-details div h2 {
@@ -118,7 +137,7 @@ body {
 .country article .country-details div h5 {
   font-weight: 600;
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .country article .country-details div h5 span {
@@ -136,15 +155,16 @@ body {
 .country article .borders {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .country article .borders ul {
-  margin: 10px;
   background-color: var(--dark-bg-element);
   padding: 3px 20px;
   border-radius: 3px;
   box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.5);
 }
+
 /*Countries*/
 .grid {
   display: grid;
@@ -210,11 +230,33 @@ body {
 @media (min-width: 992px) {
   .header,
   .filter,
-  .grid {
+  .grid,
+  .country {
     padding: 20px 100px;
   }
   .grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 60px;
+  }
+  .country article {
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+  }
+  .flag {
+    width: 50%;
+  }
+  .country-data {
+    width: 50%;
+  }
+  .country-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .country-borders {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
