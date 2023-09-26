@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Filter from "./Filter";
 
 const url = "https://restcountries.com/v2/all";
 
@@ -17,6 +18,7 @@ const Countries = () => {
 
   return (
     <>
+      <Filter />
       <section className="grid">
         {countries.map((country) => {
           const { numericCode, name, population, region, capital, flag } =
