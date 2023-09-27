@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Filter = () => {
+const Filter = ({ onRegionChange }) => {
   const [searchInput, setSearchInput] = useState("");
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
+  const [selectedRegion, setSelectedRegion] = useState("");
 
   useEffect(() => {
     fetch("https://restcountries.com/v2/all")
@@ -21,11 +22,23 @@ const Filter = () => {
     const searchText = event.target.value;
     setSearchInput(searchText);
 
-    const filtered = countries.filter((country) =>
-      country.name.toLowerCase().includes(searchText.toLowerCase())
+    const filtered = countries.filter(
+      (country) =>
+        country.name &&
+        typeof country.name === "string" &&
+        country.name.toLowerCase().includes(searchText.toLowerCase())
     );
 
     setFilteredCountries(filtered);
+  };
+
+  const handleRegionChange = (event) => {
+    const region = event.target.value;
+    setSelectedRegion(region);
+    onRegionChange(region);
+
+    setSearchInput("");
+    setFilteredCountries([]);
   };
 
   return (
@@ -58,8 +71,14 @@ const Filter = () => {
       </form>
 
       <div className="region-filter">
-        <select name="select" id="select" className="select">
-          <option value="Filter by region">Filter by region</option>
+        <select
+          name="select"
+          id="select"
+          className="select"
+          value={selectedRegion}
+          onChange={handleRegionChange}
+        >
+          <option value="">Filter by region</option>
           <option value="Africa">Africa</option>
           <option value="America">America</option>
           <option value="Asia">Asia</option>
