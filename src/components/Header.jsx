@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaMoon } from "react-icons/fa6";
 
 const Header = () => {
@@ -14,9 +15,9 @@ const Header = () => {
   return (
     <>
       <section className="header">
-        <div>
+        <Link to={"/"} className="link">
           <h1>Where in the world?</h1>
-        </div>
+        </Link>
         <div onClick={toggleDarkMode} className="dark-toggle">
           <FaMoon /> Dark mode
         </div>
