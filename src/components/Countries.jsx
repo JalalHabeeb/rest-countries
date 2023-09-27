@@ -6,26 +6,47 @@ const url = "https://restcountries.com/v2/all";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [selectedRegion, setSelectedRegion] = useState("");
 
   const fetchCountries = async () => {
-    const response = await fetch(url);
-    const countries = await response.json();
-    setCountries(countries);
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setCountries(data);
+      setFilteredCountries(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
   useEffect(() => {
     fetchCountries();
   }, []);
 
+  const handleRegionChange = (region) => {
+    setSelectedRegion(region);
+
+    if (region) {
+      const filtered = countries.filter(
+        (country) => country.region.toLowerCase() === region.toLowerCase()
+      );
+      setFilteredCountries(filtered);
+    } else {
+      setFilteredCountries(countries);
+    }
+  };
+
   return (
     <>
-      <Filter />
+      <Filter onRegionChange={handleRegionChange} />
       <section className="grid">
-        {countries.map((country) => {
+        {filteredCountries.map((country) => {
           const { numericCode, name, population, region, capital, flag } =
             country;
           return (
             <Link to={`/countries/${name}`} key={numericCode} className="link">
-              <img src={flag} alt="name" />
+              <img src={flag} alt={name} />
               <div className="details">
                 <h3>{name}</h3>
                 <h4>
