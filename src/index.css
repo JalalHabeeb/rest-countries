@@ -1,12 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&display=swap");
 
 :root {
-  --dark-bg-color: hsl(207, 26%, 17%);
-  --dark-bg-element: hsl(209, 23%, 22%);
-  --text-color: hsl(0, 0%, 100%);
-  --light-mode-text: hsl(200, 15%, 8%);
-  --light-mode-input: hsl(0, 0%, 52%);
-  --light-mode-bg: hsl(0, 0%, 98%);
+  --dark-mode-bg: hsl(207, 26%, 17%);
+  --dark-mode-element: hsl(209, 23%, 22%);
+  --dark-mode-input: hsl(209, 23%, 22%);
+  --dark-text-color: hsl(0, 0%, 100%);
+  --light-mode-bg: hsl(0, 0%, 95%);
+  --light-mode-element: hsl(0, 0%, 100%);
+  --light-mode-input: hsl(0, 0%, 98%);
+  --light-text-color: hsl(200, 15%, 8%);
+}
+
+/* Light Mode */
+.light-mode {
+  --bg-color: var(--light-mode-bg);
+  --bg-element: var(--light-mode-element);
+  --bg-input: var(--light-mode-input);
+  --text: var(--light-text-color);
+}
+
+/* Dark Mode */
+.dark-mode {
+  --bg-color: var(--dark-mode-bg);
+  --bg-element: var(--dark-mode-element);
+  --bg-input: var(--dark-mode-input);
+  --text: var(--dark-text-color);
 }
 
 * {
@@ -21,8 +39,8 @@ img {
 
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: var(--dark-bg-color);
-  color: var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text);
 }
 
 /*Header*/
@@ -31,8 +49,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--dark-bg-element);
+  background-color: var(--bg-element);
   padding: 20px;
+  box-shadow: 0 5px 10px hsla(200, 15%, 8%, 0.1);
+}
+
+.dark-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dark-toggle:hover {
+  font-weight: 600;
 }
 
 /*Filter*/
@@ -49,12 +79,12 @@ body {
 }
 
 .filter .form-control input {
-  background-color: var(--dark-bg-element);
+  background-color: var(--bg-input);
   border: none;
   outline: none;
   padding: 12px;
   border-radius: 5px;
-  color: var(--text-color);
+  color: var(--text);
   font-family: inherit;
   letter-spacing: 0.5px;
   width: 100%;
@@ -62,7 +92,7 @@ body {
 }
 
 .filter .form-control input::placeholder {
-  color: var(--text-color);
+  color: var(--text);
 }
 
 .filter .region-filter {
@@ -70,8 +100,8 @@ body {
 }
 
 .filter .region-filter .select {
-  background-color: var(--dark-bg-element);
-  color: var(--text-color);
+  background-color: var(--bg-input);
+  color: var(--text);
   font-family: inherit;
   padding: 12px;
   width: 200px;
@@ -82,10 +112,10 @@ body {
 /*Country*/
 
 .btn {
-  background-color: var(--dark-bg-element);
+  background-color: var(--bg-element);
   padding: 5px;
   cursor: pointer;
-  border: 2px solid var(--dark-bg-color);
+  border: 2px solid var(---bg-color);
   border-radius: 5px;
   margin-bottom: 30px;
   display: inline-block;
@@ -98,8 +128,7 @@ body {
 }
 
 .btn:hover {
-  background-color: white;
-  color: var(--dark-bg-color);
+  background-color: var(--light-mode-input);
 }
 
 .country {
@@ -163,15 +192,17 @@ body {
   list-style-type: none;
 }
 
-.country article .borders {
+.borders ul {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
-.country article .borders ul {
-  background-color: var(--dark-bg-element);
+.borders ul li {
+  background-color: var(--bg-element);
   padding: 3px 20px;
+  margin-bottom: 5px;
   border-radius: 3px;
   box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.5);
 }
@@ -184,12 +215,16 @@ body {
   padding: 20px;
 }
 
-.grid article img {
+.grid .link {
+  box-shadow: 0 5px 10px hsla(200, 15%, 8%, 0.1);
+}
+
+.grid .link img {
   border-radius: 5px 5px 0 0;
 }
 
 .grid .details {
-  background-color: var(--dark-bg-element);
+  background-color: var(--bg-element);
   padding: 20px;
   margin-top: -10px;
   border-radius: 0 0 5px 5px;
@@ -209,7 +244,7 @@ body {
 
 .link {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--text);
 }
 
 /*Search*/
@@ -218,9 +253,9 @@ body {
   position: absolute;
   left: 20px;
   z-index: 1000;
-  background-color: var(--dark-bg-element);
-  color: var(--text-color);
-  border: 1px solid var(--dark-bg-color);
+  background-color: var(--bg-element);
+  color: var(--text);
+  border: 1px solid var(--bg-color);
   border-radius: 5px;
   width: 20%;
 }
@@ -239,12 +274,8 @@ body {
   list-style-type: none;
 }
 
-.search-results ul li:hover {
-  background-color: var(--dark-bg-color);
-}
-
 .search-link {
-  color: var(--text-color);
+  color: var(--text);
   text-decoration: none;
 }
 
