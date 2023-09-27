@@ -219,15 +219,26 @@ body {
   box-shadow: 0 5px 10px hsla(200, 15%, 8%, 0.1);
 }
 
-.grid .link img {
+.grid .link .flag-img {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.grid .link .flag-img img {
   border-radius: 5px 5px 0 0;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
 }
 
-.grid .details {
+.grid .link .details {
   background-color: var(--bg-element);
   padding: 20px;
-  margin-top: -10px;
   border-radius: 0 0 5px 5px;
+  height: 50%;
 }
 
 .grid .details h3 {
