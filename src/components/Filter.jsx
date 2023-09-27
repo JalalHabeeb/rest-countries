@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Filter = ({ onRegionChange }) => {
@@ -6,6 +6,8 @@ const Filter = ({ onRegionChange }) => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const searchInputRef = useRef(null);
 
   useEffect(() => {
     fetch("https://restcountries.com/v2/all")
@@ -16,6 +18,24 @@ const Filter = ({ onRegionChange }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target) &&
+        !document.querySelector(".search-results").contains(event.target)
+      ) {
+        setShowSearchResults(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
   }, []);
 
   const handleSearchInputChange = (event) => {
@@ -30,6 +50,8 @@ const Filter = ({ onRegionChange }) => {
     );
 
     setFilteredCountries(filtered);
+
+    setShowSearchResults(filtered.length > 0);
   };
 
   const handleRegionChange = (event) => {
@@ -51,8 +73,9 @@ const Filter = ({ onRegionChange }) => {
           placeholder="Search for country"
           value={searchInput}
           onChange={handleSearchInputChange}
+          ref={searchInputRef}
         />
-        <div className="search-results">
+        <div className={`search-results ${showSearchResults ? "visible" : ""}`}>
           {filteredCountries.length > 0 && (
             <ul>
               {filteredCountries.map((country) => (

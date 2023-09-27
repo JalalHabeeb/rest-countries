@@ -250,6 +250,7 @@ body {
 /*Search*/
 
 .search-results {
+  display: none;
   position: absolute;
   left: 20px;
   z-index: 1000;
@@ -258,6 +259,10 @@ body {
   border: 1px solid var(--bg-color);
   border-radius: 5px;
   width: 20%;
+}
+
+.search-results.visible {
+  display: block;
 }
 
 .search-results ul {
