@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { FaSistrix } from "react-icons/fa6";
 
 const Filter = ({ onRegionChange }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -66,15 +67,19 @@ const Filter = ({ onRegionChange }) => {
   return (
     <section className="filter">
       <form className="form-control">
-        <input
-          type="search"
-          name="search"
-          id="search"
-          placeholder="Search for country"
-          value={searchInput}
-          onChange={handleSearchInputChange}
-          ref={searchInputRef}
-        />
+        <div className="search-wrapper">
+          <FaSistrix className="search-icon" />
+          <input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search for country"
+            value={searchInput}
+            onChange={handleSearchInputChange}
+            ref={searchInputRef}
+          />
+        </div>
+
         <div className={`search-results ${showSearchResults ? "visible" : ""}`}>
           {filteredCountries.length > 0 && (
             <ul>

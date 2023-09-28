@@ -41,6 +41,7 @@ body {
   font-family: "Nunito Sans", sans-serif;
   background-color: var(--bg-color);
   color: var(--text);
+  transition: background-color 0.4s;
 }
 
 /*Header*/
@@ -52,6 +53,7 @@ body {
   background-color: var(--bg-element);
   padding: 20px;
   box-shadow: 0 5px 10px hsla(200, 15%, 8%, 0.1);
+  transition: background-color 0.4s;
 }
 
 .dark-toggle {
@@ -89,6 +91,7 @@ body {
   letter-spacing: 0.5px;
   width: 100%;
   margin: 0 0 30px;
+  transition: background-color 0.4s;
 }
 
 .filter .form-control input::placeholder {
@@ -107,6 +110,7 @@ body {
   width: 200px;
   border: none;
   border-radius: 5px;
+  transition: background-color 0.4s;
 }
 
 /*Country*/
@@ -205,6 +209,7 @@ body {
   margin-bottom: 5px;
   border-radius: 3px;
   box-shadow: 0 0 5px hsla(200, 15%, 8%, 0.5);
+  transition: background-color 0.4s;
 }
 
 /*Countries*/
@@ -239,6 +244,7 @@ body {
   padding: 20px;
   border-radius: 0 0 5px 5px;
   height: 50%;
+  transition: background-color 0.4s;
 }
 
 .grid .details h3 {
@@ -295,6 +301,15 @@ body {
   text-decoration: none;
 }
 
+.search-wrapper {
+  background-color: var(--bg-element);
+  padding-left: 10px;
+  display: flex;
+  align-items: baseline;
+  border-radius: 5px;
+  transition: background-color 0.4s;
+}
+
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -309,7 +324,7 @@ body {
   }
 
   .filter .form-control input {
-    width: auto;
+    width: 450px;
     margin: 0;
   }
 
