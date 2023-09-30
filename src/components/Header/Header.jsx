@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <>
-      <section className="header">
+      <section className="header" data-testid="header">
         <Link to={"/"} className="link">
           <h1>Where in the world?</h1>
         </Link>
