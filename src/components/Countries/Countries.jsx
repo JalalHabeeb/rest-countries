@@ -42,11 +42,16 @@ const Countries = () => {
           const { numericCode, name, population, region, capital, flag } =
             country;
           return (
-            <Link to={`/countries/${name}`} key={numericCode} className="link">
+            <Link
+              to={`/countries/${name}`}
+              key={numericCode}
+              className="link"
+              data-testid="countries-link"
+            >
               <div className="flag-img">
                 <img src={flag} alt={name} />
               </div>
-              <div className="details">
+              <div className="details" data-testid="countries-details">
                 <h3>{name}</h3>
                 <h4>
                   Population: <span>{population}</span>
