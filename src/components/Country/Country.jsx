@@ -9,9 +9,15 @@ const Country = () => {
 
   useEffect(() => {
     const fetchCountry = async () => {
-      const response = await fetch(`https://restcountries.com/v2/name/${name}`);
-      const country = await response.json();
-      setCountry(country);
+      try {
+        const response = await fetch(
+          `https://restcountries.com/v2/name/${name}`
+        );
+        const country = await response.json();
+        setCountry(country);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchCountry();
   }, [name]);
