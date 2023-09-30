@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Filter from "./Filter";
-
-const url = "https://restcountries.com/v2/all";
+import Filter from "../Filter/Filter";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState("");
 
-  const fetchCountries = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setCountries(data);
-      setFilteredCountries(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch("https://restcountries.com/v2/all");
+        const data = await response.json();
+        setCountries(data);
+        setFilteredCountries(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
     fetchCountries();
   }, []);
 

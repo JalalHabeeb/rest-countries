@@ -11,14 +11,16 @@ const Filter = ({ onRegionChange }) => {
   const searchInputRef = useRef(null);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v2/all")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch("https://restcountries.com/v2/all");
+        const data = await response.json();
         setCountries(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchCountries();
   }, []);
 
   useEffect(() => {
