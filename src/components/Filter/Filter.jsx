@@ -67,7 +67,7 @@ const Filter = ({ onRegionChange }) => {
   };
 
   return (
-    <section className="filter">
+    <section className="filter" data-testid="filter">
       <form className="form-control">
         <div className="search-wrapper">
           <FaSistrix className="search-icon" />

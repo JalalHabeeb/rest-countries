@@ -23,7 +23,7 @@ const Country = () => {
   }, [name]);
   return (
     <>
-      <section className="country">
+      <section className="country" data-testid="country-section">
         <Link to={"/"} className="btn link">
           <FaArrowLeftLong />
           <span>Back</span>
