@@ -26,4 +26,13 @@ describe("The Header section", () => {
       expect(body).toHaveClass("light-mode");
     });
   });
+
+  it("Navigates to the home when click on 'Where in the world'", () => {
+    render(<MockHeader />);
+
+    const homeLink = screen.getByText(/Where in the world?/i);
+    fireEvent.click(homeLink);
+
+    expect(window.location.pathname).toBe("/");
+  });
 });
