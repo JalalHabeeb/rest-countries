@@ -4,8 +4,7 @@ import Filter from "../Filter";
 describe("The Filter section", () => {
   it("rendered on screen", () => {
     render(<Filter />);
-    const sectionElement = screen.getByTestId("filter");
-    expect(sectionElement).toBeInTheDocument();
+    expect(screen.getByTestId("filter")).toBeInTheDocument();
   });
 
   it("Should be able to type in the input", () => {

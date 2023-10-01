@@ -13,8 +13,7 @@ const MockCountry = () => {
 describe("The Country section", () => {
   it("rendered on screen", () => {
     render(<MockCountry />);
-    const sectionElement = screen.getByTestId("country-section");
-    expect(sectionElement).toBeInTheDocument();
+    expect(screen.getByTestId("country-section")).toBeInTheDocument();
   });
 
   it("Show the flag of the country", async () => {
