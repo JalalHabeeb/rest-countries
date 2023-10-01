@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Country from "../Country";
 
@@ -15,5 +15,12 @@ describe("The Country section", () => {
     render(<MockCountry />);
     const sectionElement = screen.getByTestId("country-section");
     expect(sectionElement).toBeInTheDocument();
+  });
+
+  it("Show the flag of the country", async () => {
+    render(<MockCountry />);
+    await waitFor(() => {
+      expect(screen.getByTestId("flag-image")).toBeInTheDocument();
+    });
   });
 });
