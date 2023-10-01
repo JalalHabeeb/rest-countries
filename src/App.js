@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Countries from "./components/Countries/Countries.jsx";
 import Header from "./components/Header/Header.jsx";
 // import Country from "./components/Country/Country.jsx";
+import { Grid } from "react-loader-spinner";
 
 const Countries = React.lazy(() =>
   import("./components/Countries/Countries.jsx")
@@ -19,7 +20,24 @@ function App() {
           exact
           path="/"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense
+              fallback={
+                <Grid
+                  height="80"
+                  width="80"
+                  color="#4fa94d"
+                  ariaLabel="grid-loading"
+                  radius="12.5"
+                  wrapperStyle={{
+                    display: "flex",
+                    "justify-content": "center",
+                    "margin-top": "20%",
+                  }}
+                  wrapperClass=""
+                  visible={true}
+                />
+              }
+            >
               <Countries />
             </Suspense>
           }
@@ -28,7 +46,24 @@ function App() {
         <Route
           path="/countries/:name"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense
+              fallback={
+                <Grid
+                  height="80"
+                  width="80"
+                  color="#4fa94d"
+                  ariaLabel="grid-loading"
+                  radius="12.5"
+                  wrapperStyle={{
+                    display: "flex",
+                    "justify-content": "center",
+                    "margin-top": "20%",
+                  }}
+                  wrapperClass=""
+                  visible={true}
+                />
+              }
+            >
               <Country />
             </Suspense>
           }
