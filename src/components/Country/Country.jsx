@@ -51,7 +51,7 @@ const Country = () => {
                   <img src={flag} alt={name} />
                 </div>
 
-                <div className="country-data">
+                <div className="country-data" data-testid="country-data">
                   <div className="country-details">
                     <h2>{name}</h2>
                     <div className="country-info">

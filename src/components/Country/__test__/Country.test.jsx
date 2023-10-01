@@ -23,4 +23,11 @@ describe("The Country section", () => {
       expect(screen.getByTestId("flag-image")).toBeInTheDocument();
     });
   });
+
+  it("Show the data of the country", async () => {
+    render(<MockCountry />);
+    await waitFor(() => {
+      expect(screen.getByTestId("country-data")).toBeInTheDocument();
+    });
+  });
 });
