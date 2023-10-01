@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Country from "../Country";
 
@@ -29,5 +29,11 @@ describe("The Country section", () => {
     await waitFor(() => {
       expect(screen.getByTestId("country-data")).toBeInTheDocument();
     });
+  });
+
+  it("Back button goes to homepage", async () => {
+    render(<MockCountry />);
+    fireEvent.click(screen.getByRole("link"));
+    expect(window.location.pathname).toBe("/");
   });
 });
