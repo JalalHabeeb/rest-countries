@@ -37,6 +37,7 @@ const Countries = () => {
   return (
     <>
       <Filter onRegionChange={handleRegionChange} />
+
       <section className="grid" data-testid="countries-section">
         {filteredCountries.map((country) => {
           const { numericCode, name, population, region, capital, flag } =
