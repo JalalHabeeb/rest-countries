@@ -1,8 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Countries from "./components/Countries/Countries.jsx";
 import Header from "./components/Header/Header.jsx";
-// import Country from "./components/Country/Country.jsx";
 import { Grid } from "react-loader-spinner";
 
 const Countries = React.lazy(() =>
