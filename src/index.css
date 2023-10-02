@@ -385,3 +385,9 @@ body {
     justify-content: space-between;
   }
 }
+
+@media (min-width: 1216px) {
+  .borders ul {
+    gap: 10px;
+  }
+}
