@@ -17,6 +17,7 @@
   --bg-element: var(--light-mode-element);
   --bg-input: var(--light-mode-input);
   --text: var(--light-text-color);
+  --toggle-shadow: var(--dark-mode-bg);
 }
 
 /* Dark Mode */
@@ -25,6 +26,7 @@
   --bg-element: var(--dark-mode-element);
   --bg-input: var(--dark-mode-input);
   --text: var(--dark-text-color);
+  --toggle-shadow: var(--light-mode-bg);
 }
 
 * {
@@ -64,7 +66,7 @@ body {
 }
 
 .dark-toggle:hover {
-  font-weight: 600;
+  text-shadow: 0px 0px 20px var(--toggle-shadow);
 }
 
 /*Filter*/
@@ -111,6 +113,7 @@ body {
   border: none;
   border-radius: 5px;
   transition: background-color 0.4s;
+  cursor: pointer;
 }
 
 /*Country*/
@@ -221,7 +224,13 @@ body {
 }
 
 .grid .link {
+  border-radius: 5px 5px 0 0;
   box-shadow: 0 5px 10px hsla(200, 15%, 8%, 0.1);
+  transition: box-shadow 0.4s;
+}
+
+.grid .link:hover {
+  box-shadow: 0px 0px 10px var(--toggle-shadow);
 }
 
 .grid .link .flag-img {
@@ -230,6 +239,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  border-radius: 5px 5px 0 0;
 }
 .grid .link .flag-img img {
   border-radius: 5px 5px 0 0;
@@ -269,13 +279,15 @@ body {
 .search-results {
   display: none;
   position: absolute;
-  left: 20px;
+  /* left: 20px; */
   z-index: 1000;
   background-color: var(--bg-element);
   color: var(--text);
   border: 1px solid var(--bg-color);
   border-radius: 5px;
-  width: 20%;
+  width: auto;
+  padding: 0 20px;
+  box-shadow: 0 5px 10px hsla(200, 15%, 8%, 0.1);
 }
 
 .search-results.visible {
@@ -294,6 +306,10 @@ body {
   height: 30px;
   width: 100%;
   list-style-type: none;
+}
+
+.search-results ul li:hover {
+  text-shadow: 0px 0px 20px var(--toggle-shadow);
 }
 
 .search-link {
