@@ -32,4 +32,50 @@ export const handlers = [
       ])
     );
   }),
+  rest.get("https://restcountries.com/v2/name/:name", (req, res, ctx) => {
+    const { name } = req.params;
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          name: name,
+          numericCode: "760",
+          population: 17500657,
+          region: "Asia",
+          capital: "Damascus",
+          flag: "https://flagcdn.com/sy.svg",
+          nativeName: "سوريا",
+          subregion: "Western Asia",
+          topLevelDomain: [".sy"],
+          currencies: [
+            {
+              code: "SYP",
+              name: "Syrian pound",
+              symbol: "£",
+            },
+          ],
+          languages: [
+            {
+              iso639_1: "ar",
+              iso639_2: "ara",
+              name: "Arabic",
+              nativeName: "العربية",
+            },
+          ],
+          borders: ["IRQ", "ISR", "JOR", "LBN", "TUR"],
+        },
+      ])
+    );
+  }),
+  rest.get("countries/:name", (req, res, ctx) => {
+    const { name } = req.params;
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          name: name,
+        },
+      ])
+    );
+  }),
 ];
