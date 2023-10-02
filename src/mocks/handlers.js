@@ -67,4 +67,15 @@ export const handlers = [
       ])
     );
   }),
+  rest.get("countries/:name", (req, res, ctx) => {
+    const { name } = req.params;
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          name: name,
+        },
+      ])
+    );
+  }),
 ];
